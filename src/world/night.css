@@ -1,0 +1,241 @@
+/* Large transparent gesture surface: global pointer ownership leaves room buttons reachable. */
+.world-game .joystick-zone {
+  left: 0;
+  bottom: 0;
+  top: max(100px, 24dvh);
+  width: 44%;
+  height: auto;
+  pointer-events: none;
+}
+.world-game .joystick-zone .joystick {
+  pointer-events: none;
+  left: clamp(64px, 13vw, 150px);
+  bottom: clamp(55px, 17dvh, 125px);
+  opacity: 0.3;
+}
+.world-game .joystick-zone .joystick.active {
+  opacity: 0.9;
+}
+.world-game {
+  touch-action: none;
+}
+.hud-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  color: #f7db9e;
+  font-size: 12px;
+  padding: 5px 10px;
+  background: #251d2de6;
+  border: 1px solid #8e6b42;
+}
+.hud-actions span {
+  font-size: 10px;
+  color: #baa58d;
+}
+.hud-actions.empty strong {
+  color: #e7a98e;
+}
+.night-room-active .station,
+.night-room-active .clerk-marker {
+  display: none;
+}
+.world-hud[hidden] {
+  display: none;
+}
+.night-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1500;
+  overflow: hidden;
+  color: #f6dfb2;
+  isolation: isolate;
+}
+.night-shade {
+  position: absolute;
+  inset: 0;
+  background: #16172f20;
+  pointer-events: none;
+}
+.night-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 960px;
+  height: 540px;
+  transform-origin: center;
+  pointer-events: none;
+}
+.night-customer {
+  position: absolute;
+}
+.coin-receipt {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  white-space: nowrap;
+  color: #ffe596;
+  background: #392c18ed;
+  border: 1px solid #b3934d;
+  padding: 5px 8px;
+  font-size: 18px;
+  text-shadow: none;
+  box-shadow: 0 2px 0 #17111b;
+}
+.night-header {
+  position: absolute;
+  top: var(--ui-top);
+  left: var(--ui-left);
+  right: var(--ui-right);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.night-header > div {
+  background: #211c2eea;
+  border: 2px solid #887045;
+  padding: 10px 15px;
+  box-shadow: 3px 3px #0e0c1477;
+}
+.night-header h2 {
+  font: inherit;
+  font-size: 18px;
+  color: #f8db9d;
+  margin: 5px 0 0;
+  text-shadow: none;
+}
+.night-header small {
+  font-size: 11px;
+  color: #c8b896;
+}
+.night-gold {
+  text-align: right;
+  font-size: 22px;
+}
+.night-gold span {
+  color: #f5c858;
+}
+.night-gold small {
+  display: block;
+  margin-top: 5px;
+}
+.night-controls {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  line-height: 1.5;
+  position: absolute;
+  left: var(--ui-left);
+  right: var(--ui-right);
+  bottom: var(--ui-bottom);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.night-summary {
+  min-width: 0;
+  background: #211b2de8;
+  padding: 10px 14px;
+  border-left: 3px solid #ad8c54;
+  max-width: min(60%, 560px);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.night-summary strong {
+  font-size: 14px;
+  font-weight: normal;
+}
+.night-summary small {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.night-summary > span {
+  color: #b9a48a;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.night-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.game-root .night-buttons button {
+  margin: 0;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 12px;
+  text-shadow: none;
+  font-family: inherit;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.night-buttons button.selected {
+  outline: 2px solid #dcc889;
+  outline-offset: 2px;
+}
+@media (max-height: 520px) {
+  .night-header > div {
+    padding: 6px 10px;
+  }
+  .night-header h2 {
+    font-size: 14px;
+  }
+  .night-gold {
+    font-size: 17px;
+  }
+  .night-summary {
+    padding: 7px 10px;
+    max-width: 55%;
+    gap: 2px;
+  }
+  .night-summary strong {
+    font-size: 12px;
+  }
+  .night-summary small {
+    font-size: 10px;
+  }
+  .night-summary > span {
+    font-size: 9px;
+  }
+  .night-buttons {
+    gap: 5px;
+  }
+  .game-root .night-buttons button {
+    padding: 0 8px;
+    font-size: 12px;
+  }
+  .hud-actions {
+    padding: 4px 7px;
+    font-size: 11px;
+  }
+}
+@media (orientation: portrait) {
+  .night-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .night-summary {
+    max-width: 100%;
+  }
+  .night-buttons {
+    justify-content: flex-end;
+  }
+  .hud-actions {
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+/* Room hit targets use translated anchors; a generic pressed transform must not move them. */
+.room-world .station:active:not(:disabled) {
+  transform: translate(-50%, -50%);
+}
+.room-world .visitor-marker:active:not(:disabled),
+.room-world .clerk-marker:active:not(:disabled) {
+  transform: translateX(-50%);
+}

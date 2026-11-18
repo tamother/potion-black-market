@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-10-25T03:59:54.992Z",
+  "runsPerStrategy": 300,
+  "maxDays": 100,
+  "results": [
+    {
+      "strategy": "conservative",
+      "runs": 300,
+      "averageSurvival": 100,
+      "bankruptcyRate": 0,
+      "closureRate": 0,
+      "averageFinalAssets": 4529.73,
+      "wealth": {
+        "min": 3512,
+        "p10": 4144,
+        "median": 4536,
+        "p90": 4888,
+        "max": 5373
+      },
+      "failureReasons": {
+        "存活到100天": 300
+      }
+    },
+    {
+      "strategy": "aggressive",
+      "runs": 300,
+      "averageSurvival": 66.32,
+      "bankruptcyRate": 0,
+      "closureRate": 0.7133333333333334,
+      "averageFinalAssets": 7254.5,
+      "wealth": {
+        "min": 1139,
+        "p10": 3262,
+        "median": 7070,
+        "p90": 11130,
+        "max": 12698
+      },
+      "failureReasons": {
+        "存活到100天": 86,
+        "永久查封": 214
+      }
+    },
+    {
+      "strategy": "mixed",
+      "runs": 300,
+      "averageSurvival": 100,
+      "bankruptcyRate": 0,
+      "closureRate": 0,
+      "averageFinalAssets": 6239.13,
+      "wealth": {
+        "min": 5169,
+        "p10": 5847,
+        "median": 6243,
+        "p90": 6641,
+        "max": 7327
+      },
+      "failureReasons": {
+        "存活到100天": 300
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-10-25T04:09:26.183Z",
+  "runsPerPolicy": 300,
+  "results": [
+    {
+      "policy": "diversified",
+      "runs": 300,
+      "averageDays": 100,
+      "bankrupt": 0,
+      "averageAssets": 4529.73,
+      "p10": 4144,
+      "median": 4536,
+      "averageIncidents": 21.873333333333335,
+      "averageAverted": 0,
+      "averageWardUses": 0,
+      "averageCrystalSpend": 0,
+      "averageOperatingCosts": 3562.32,
+      "shortfallDays": 0
+    },
+    {
+      "policy": "selective-ward",
+      "runs": 300,
+      "averageDays": 100,
+      "bankrupt": 0,
+      "averageAssets": 3783.99,
+      "p10": 3426,
+      "median": 3769,
+      "averageIncidents": 15.906666666666666,
+      "averageAverted": 7.833333333333333,
+      "averageWardUses": 35.973333333333336,
+      "averageCrystalSpend": 447.7866666666667,
+      "averageOperatingCosts": 3392.3733333333334,
+      "shortfallDays": 0
+    },
+    {
+      "policy": "guild-only",
+      "runs": 300,
+      "averageDays": 47.16,
+      "bankrupt": 300,
+      "averageAssets": -476.46,
+      "p10": -542,
+      "median": -471,
+      "averageIncidents": 9.906666666666666,
+      "averageAverted": 0,
+      "averageWardUses": 0,
+      "averageCrystalSpend": 0,
+      "averageOperatingCosts": 1103.7466666666667,
+      "shortfallDays": 900
+    }
+  ]
+}

@@ -1,0 +1,492 @@
+.town-art,
+.crystal-environment {
+  position: absolute;
+  inset: 0;
+  width: 960px;
+  height: 540px;
+  pointer-events: none;
+  image-rendering: pixelated;
+  object-fit: fill;
+}
+.crystal-environment {
+  mask-image: radial-gradient(
+    ellipse 46px 58px at 248px 372px,
+    #000 65%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 46px 58px at 248px 372px,
+    #000 65%,
+    transparent 100%
+  );
+}
+.town-world .station {
+  z-index: 600;
+}
+.world-game .hud-tools > .town-shortcut {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+  font-size: 13px;
+}
+.town-return {
+  position: absolute;
+  right: max(30px, calc(var(--safe-right) + 16px));
+  bottom: 145px;
+  z-index: 740;
+  font-family: inherit;
+  min-height: 36px;
+  padding: 5px 13px;
+  font-size: 12px;
+  text-shadow: none;
+}
+.relation-card {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  min-height: 0;
+}
+.relation-medal {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 58px;
+  color: #9c8b6d;
+  background: radial-gradient(circle, #59402d, #231c23);
+  border: 5px double #9c7950;
+  box-shadow:
+    3px 4px #21171a,
+    inset 0 0 0 5px #2c2020;
+  text-shadow: 2px 3px #201521;
+}
+.relation-medal.rank-1 {
+  color: #d1aa64;
+}
+.relation-medal.rank-2 {
+  color: #ead19b;
+  box-shadow:
+    3px 4px #21171a,
+    inset 0 0 0 5px #654832;
+}
+.relation-medal.rank-3 {
+  color: #ffe5a7;
+  border-color: #efca80;
+}
+.relation-card article {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.relation-card h3,
+.relation-card h4 {
+  margin: 0;
+  line-height: 1.5;
+}
+.relation-card h3 {
+  font-size: 19px;
+}
+.relation-card h4 {
+  font-size: 15px;
+}
+.relation-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.relation-meter {
+  height: 12px;
+  background: #a27c4d;
+  border: 2px solid #6c4c31;
+}
+.relation-meter i {
+  display: block;
+  height: 100%;
+  background: #6f8463;
+}
+.honors-window .window-content {
+  background:
+    linear-gradient(90deg, #2f252cdd, #4d3534ed),
+    repeating-linear-gradient(0deg, #563a2a 0 4px, #35281f 4px 8px);
+  border: 3px solid #9f7b47;
+  box-shadow: inset 2px 2px #2b1e21;
+  color: #f1d5a1;
+}
+.honors-window .relation-card h3,
+.honors-window .relation-card h4 {
+  color: #ffe5b2;
+}
+.honors-window .relation-card p {
+  color: #e1c79e;
+}
+.promise-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.promise-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.promise-top h3 {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.5;
+}
+.promise-top > span {
+  font-size: 11px;
+  color: #8b653e;
+}
+.promise-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.promise-lines > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.promise-lines .potion {
+  width: 24px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.promise-lines span {
+  font-size: 16px;
+}
+.promise-lines strong {
+  font-size: 17px;
+}
+.promise-lines small {
+  font-size: 12px;
+  color: #8e6a43;
+}
+.promise-terms {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.promise-terms strong {
+  color: #765339;
+}
+.promise-penalty {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+  color: #8d623d;
+}
+.promise-story p {
+  font-size: 15px;
+  line-height: 1.9;
+  margin: 0 0 10px;
+}
+.game-root .reserve-toggle {
+  min-height: 27px;
+  height: 27px;
+  padding: 2px 8px;
+  font-size: 11px;
+  line-height: 1;
+  text-shadow: none;
+  margin-left: auto;
+}
+.town-window .window-actions {
+  gap: 8px;
+}
+.town-window .purchase-total {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.town-trade .item-illustration h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.town-trade .trade-input-row > label {
+  white-space: nowrap;
+}
+.delivery-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 25px;
+  align-items: center;
+}
+.delivery-card > .potion {
+  width: 72px;
+  height: 90px;
+}
+.delivery-card h3 {
+  font-size: 19px;
+  margin: 0 0 10px;
+}
+.delivery-card p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 7px 0;
+}
+.town-outlook {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.town-outlook h3 {
+  font-size: 19px;
+  margin: 0;
+}
+.town-outlook p {
+  font-size: 15px;
+  line-height: 1.9;
+  margin: 0;
+}
+.town-outlook small {
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-height: 520px) {
+  .relation-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 14px;
+  }
+  .relation-medal {
+    width: 62px;
+    height: 62px;
+    border-width: 3px;
+    font-size: 34px;
+  }
+  .relation-card article {
+    gap: 6px;
+  }
+  .relation-card h3 {
+    font-size: 15px;
+  }
+  .relation-card h4 {
+    font-size: 12px;
+  }
+  .relation-card p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .relation-meter {
+    height: 9px;
+  }
+  .promise-card {
+    gap: 5px;
+  }
+  .promise-top {
+    gap: 3px 10px;
+  }
+  .promise-top h3 {
+    font-size: 15px;
+  }
+  .promise-top > span {
+    font-size: 10px;
+  }
+  .promise-lines {
+    gap: 4px;
+  }
+  .promise-lines > div {
+    gap: 9px;
+  }
+  .promise-lines .potion {
+    width: 20px;
+    height: 24px;
+  }
+  .promise-lines span,
+  .promise-lines strong {
+    font-size: 13px;
+  }
+  .promise-lines small {
+    font-size: 10px;
+  }
+  .promise-terms {
+    font-size: 12px;
+    gap: 12px;
+  }
+  .promise-penalty {
+    font-size: 10px;
+  }
+  .promise-story p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 7px;
+  }
+  .town-window .window-actions {
+    gap: 5px;
+  }
+  .town-window .window-actions > .primary,
+  .town-window .window-actions > .secondary {
+    font-size: 11px;
+    padding: 0 9px;
+  }
+  .town-window .purchase-total {
+    font-size: 11px;
+  }
+  .town-trade .item-illustration h3 {
+    font-size: 14px;
+  }
+  .delivery-card {
+    grid-template-columns: 62px 1fr;
+    gap: 16px;
+  }
+  .delivery-card > .potion {
+    width: 46px;
+    height: 60px;
+  }
+  .delivery-card h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .delivery-card p {
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 4px 0;
+  }
+  .town-outlook {
+    gap: 8px;
+  }
+  .town-outlook h3 {
+    font-size: 15px;
+  }
+  .town-outlook p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .town-outlook small {
+    font-size: 10px;
+  }
+  .town-return {
+    bottom: 113px;
+  }
+}
+@media (orientation: portrait) {
+  .relation-card {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .relation-medal {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+  }
+  .relation-card h3 {
+    font-size: 15px;
+  }
+  .relation-card p {
+    font-size: 12px;
+  }
+  .promise-top h3 {
+    font-size: 15px;
+  }
+  .promise-top > span {
+    font-size: 10px;
+  }
+  .promise-lines span,
+  .promise-lines strong {
+    font-size: 13px;
+  }
+  .promise-lines small {
+    font-size: 10px;
+  }
+  .promise-terms {
+    font-size: 12px;
+    gap: 9px;
+  }
+  .promise-penalty {
+    font-size: 10px;
+  }
+  .promise-story p {
+    font-size: 13px;
+  }
+  .town-window .window-actions > .primary,
+  .town-window .window-actions > .secondary {
+    font-size: 11px;
+    padding: 0 8px;
+  }
+  .town-window .window-actions {
+    gap: 4px;
+  }
+  .town-window .window-tabs button {
+    padding-inline: 3px;
+  }
+  .town-window .window-tabs span {
+    font-size: 12px;
+  }
+  .town-window .window-pager {
+    gap: 4px;
+  }
+  .town-window .window-pager button {
+    width: 28px;
+    min-width: 28px;
+  }
+  .delivery-card {
+    grid-template-columns: 50px 1fr;
+    gap: 12px;
+  }
+  .delivery-card > .potion {
+    width: 40px;
+    height: 54px;
+  }
+  .delivery-card h3 {
+    font-size: 14px;
+  }
+  .delivery-card p {
+    font-size: 12px;
+  }
+  .world-game .hud-tools > .town-shortcut {
+    width: 30px;
+    min-width: 30px;
+  }
+}
+
+/* Keep contractual terms readable without letting inherited paragraph styles expand the card. */
+.compact-window .promise-penalty {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.promise-management p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
+.game-root .dialog .reserve-toggle {
+  min-height: 36px;
+  height: 36px;
+  padding: 4px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+@media (max-height: 520px) {
+  .town-window .window-content {
+    padding: 3px 16px;
+  }
+  .promise-card {
+    gap: 4px;
+  }
+  .compact-window .promise-penalty {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .promise-management p {
+    font-size: 12px;
+    line-height: 1.65;
+    margin-bottom: 6px;
+  }
+}
+
+/* Short, device-appropriate onboarding; completed gestures remove it permanently. */
+.control-hint {
+  max-width: calc(100vw - 200px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  white-space: normal;
+  text-align: center;
+  line-height: 1.55;
+  bottom: max(18px, env(safe-area-inset-bottom, 0px));
+}

@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-10-25T04:00:24.809Z",
+  "runs": 120,
+  "maxDays": 100,
+  "guards": [
+    "cash/stock/AP/capacity",
+    "cashflow",
+    "profit=asset-change",
+    "prepaid-transit",
+    "reload-every5days",
+    "no-double-settlement"
+  ],
+  "results": [
+    {
+      "faction": "local",
+      "runs": 120,
+      "days": 100,
+      "ended": 0,
+      "assets": 4477.52,
+      "accepted": 0,
+      "fulfilled": 0,
+      "missed": 0,
+      "preorders": 0,
+      "keysAt30": 0,
+      "rankAt30": 0,
+      "meanCooperationDay": 0,
+      "minAssets": 3673
+    },
+    {
+      "faction": "guild",
+      "runs": 120,
+      "days": 100,
+      "ended": 0,
+      "assets": 4834.95,
+      "accepted": 38.41,
+      "fulfilled": 38.01,
+      "missed": 0,
+      "preorders": 37.63,
+      "keysAt30": 3,
+      "rankAt30": 3,
+      "meanCooperationDay": 5.08,
+      "minAssets": 4095
+    },
+    {
+      "faction": "kingdom",
+      "runs": 120,
+      "days": 100,
+      "ended": 0,
+      "assets": 5807.84,
+      "accepted": 72.52,
+      "fulfilled": 72.52,
+      "missed": 0,
+      "preorders": 0,
+      "keysAt30": 3,
+      "rankAt30": 3,
+      "meanCooperationDay": 7.77,
+      "minAssets": 5115
+    },
+    {
+      "faction": "black",
+      "runs": 120,
+      "days": 100,
+      "ended": 0,
+      "assets": 5596.25,
+      "accepted": 67.82,
+      "fulfilled": 67.68,
+      "missed": 0,
+      "preorders": 0,
+      "keysAt30": 3,
+      "rankAt30": 3,
+      "meanCooperationDay": 8.37,
+      "minAssets": 4861
+    }
+  ]
+}

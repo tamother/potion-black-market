@@ -1,0 +1,326 @@
+/* Four-sided safe bounds apply to native top-layer dialogs as well as scene UI. */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --ui-left: max(clamp(24px, 5vw, 72px), calc(var(--safe-left) + 12px));
+  --ui-right: max(clamp(24px, 5vw, 72px), calc(var(--safe-right) + 12px));
+  --ui-top: max(clamp(20px, 5dvh, 44px), calc(var(--safe-top) + 12px));
+  --ui-bottom: max(clamp(20px, 5dvh, 44px), calc(var(--safe-bottom) + 12px));
+  --ui-width: calc(100vw - var(--ui-left) - var(--ui-right));
+  --ui-height: calc(100dvh - var(--ui-top) - var(--ui-bottom));
+}
+.game-root .dialog {
+  position: fixed;
+  inset: var(--ui-top) var(--ui-right) var(--ui-bottom) var(--ui-left);
+  margin: auto;
+  width: min(800px, var(--ui-width));
+  height: min(500px, var(--ui-height));
+  max-width: none;
+  max-height: none;
+}
+.game-root .dialog button,
+.game-root .dialog h2 {
+  text-shadow: none;
+}
+/* Restore the first pixel edition's warm amber / plum controls with single glyphs. */
+.game-root .dialog .primary {
+  background: #855326;
+  color: #fff0c2;
+  border-color: #422a1c;
+  box-shadow:
+    inset 1px 1px #d9ac65,
+    inset -1px -2px #54341d,
+    1px 2px #a37c49;
+}
+.game-root .dialog .secondary {
+  background: #59405f;
+  color: #f6e5c5;
+  border-color: #35253b;
+  box-shadow:
+    inset 1px 1px #aa8ab0,
+    inset -1px -2px #392b43,
+    1px 2px #a37c49;
+}
+.room-world .visitor-marker,
+.room-world .clerk-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+  height: 26px;
+  padding: 2px 7px;
+  line-height: 1.3;
+  font-size: 12px;
+  border-width: 1px;
+  background: #36282ae8;
+  box-shadow: 1px 2px #160f1c;
+  text-shadow: none;
+}
+.room-world .visitor-marker b {
+  display: inline;
+  font-size: 16px;
+  line-height: 1;
+}
+.room-world .visitor-marker span {
+  font-size: 12px;
+}
+.room-world .visitor-marker::before,
+.room-world .clerk-marker::before {
+  content: "";
+  position: absolute;
+  inset: -12px -8px;
+}
+.room-world .station-label {
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 3px 7px;
+  color: #ffe0aa;
+  background: #5b3b29;
+  border: 1px solid #2d1e1a;
+  box-shadow:
+    inset 1px 1px #b8905c,
+    inset -1px -1px #3c291f,
+    1px 2px #17111b;
+  text-shadow: none;
+}
+.room-world .station.show-label .station-label {
+  opacity: 1;
+}
+.room-world .station:hover .station-label,
+.room-world .station.near .station-label,
+.room-world .station:focus-visible .station-label {
+  background: #765132;
+}
+.world-owl {
+  top: 85px;
+}
+.world-hud {
+  top: max(10px, calc(var(--safe-top) + 6px));
+  left: max(16px, calc(var(--safe-left) + 8px));
+  right: max(16px, calc(var(--safe-right) + 8px));
+}
+.owl-bulletin {
+  position: fixed;
+  z-index: 800;
+  top: max(76px, calc(var(--safe-top) + 64px));
+  left: calc(var(--ui-left) + var(--ui-width) / 2);
+  transform: translateX(-50%);
+  width: min(460px, var(--ui-width));
+  background: #211c2bea;
+  border: 1px solid #94795580;
+  box-shadow: 2px 3px #100d1766;
+  color: #f3ddb3;
+  padding: 10px 14px 5px;
+  font-family: "Fusion Pixel", monospace;
+}
+.owl-bulletin[hidden] {
+  display: none;
+}
+.bulletin-copy {
+  min-width: 0;
+}
+.owl-bulletin h2 {
+  display: inline;
+  margin: 0 7px 0 0;
+  font-size: 12px;
+  color: #d0bde6;
+  line-height: 1.8;
+}
+.owl-bulletin p {
+  display: inline;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.bulletin-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  margin-top: 2px;
+}
+.bulletin-controls > span {
+  font-size: 10px;
+  margin-right: auto;
+  color: #bba78e;
+}
+.bulletin-controls button {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: #e8d0a4;
+  text-shadow: none;
+  padding: 0 4px;
+  min-width: 26px;
+  height: 26px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.bulletin-controls button:disabled {
+  opacity: 0.3;
+}
+@media (max-height: 420px) {
+  .window-header {
+    flex-basis: 36px;
+    padding: 2px 46px 2px 16px;
+  }
+  .window-header h2 {
+    font-size: 16px;
+  }
+  .window-tabs {
+    flex-basis: 32px;
+    padding: 2px 12px 0;
+    gap: 4px;
+  }
+  .window-tabs > button {
+    font-size: 12px;
+    padding: 2px 4px;
+  }
+  .window-tabs .potion {
+    height: 20px;
+    width: 14px;
+  }
+  .window-content {
+    padding: 6px 16px;
+  }
+  .window-footer {
+    flex-basis: 46px;
+    padding: 4px 16px;
+  }
+  .game-root .window-actions .primary,
+  .game-root .window-actions .secondary {
+    min-height: 34px;
+    padding: 4px 9px;
+  }
+  .game-root .dialog-close {
+    top: 3px;
+    right: 7px;
+    width: 28px;
+    height: 28px;
+    min-height: 28px;
+  }
+  .story-page {
+    gap: 6px;
+  }
+  .story-page > h3 {
+    font-size: 16px;
+  }
+  .story-page > p {
+    font-size: 12px;
+    line-height: 1.75;
+  }
+  .game-root .day-select > .secondary {
+    min-height: 26px;
+    height: 26px;
+    width: 26px;
+    min-width: 26px;
+  }
+  .owl-bulletin {
+    top: max(66px, calc(var(--safe-top) + 56px));
+    padding: 7px 12px 3px;
+    width: min(410px, var(--ui-width));
+  }
+  .owl-bulletin p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .bulletin-controls button {
+    height: 24px;
+    min-width: 28px;
+  }
+}
+@media (orientation: portrait) {
+  .window-header h2 {
+    font-size: 16px;
+  }
+  .window-tabs {
+    padding-inline: 8px;
+    gap: 3px;
+  }
+  .window-content {
+    padding-inline: 12px;
+  }
+  .window-header {
+    padding-left: 12px;
+    padding-right: 42px;
+  }
+  .window-header .day-select > span {
+    min-width: 48px;
+    font-size: 11px;
+  }
+  .window-header .day-select {
+    gap: 3px;
+  }
+  .game-root .day-select > .secondary {
+    width: 24px;
+    min-width: 24px;
+  }
+  .owl-bulletin {
+    top: max(92px, calc(var(--safe-top) + 72px));
+  }
+  .owl-bulletin p {
+    font-size: 12px;
+  }
+}
+
+.game-root .dialog:has(.closing-window),
+.game-root .dialog:has(.restart-window) {
+  width: min(640px, var(--ui-width));
+  height: min(300px, var(--ui-height));
+}
+.game-root .dialog:has(.settings-window) {
+  width: min(640px, var(--ui-width));
+  height: min(340px, var(--ui-height));
+}
+@media (orientation: portrait) {
+  .game-root .dialog:has(.restart-window) {
+    height: min(340px, var(--ui-height));
+  }
+  .game-root .dialog:has(.closing-window) {
+    height: min(380px, var(--ui-height));
+  }
+}
+/* Inventory follows the actual window content height, including cutout margins. */
+.inventory-grid {
+  width: min(100%, calc((var(--ui-height) - 150px) * 3.33333));
+}
+@supports (height: 1cqh) {
+  .inventory-window .window-content {
+    container-type: size;
+  }
+  .inventory-window .inventory-grid {
+    width: min(100%, calc(100cqh * 3.33333));
+  }
+  @media (orientation: portrait) {
+    .inventory-window .inventory-grid {
+      width: min(100%, calc(100cqh * 1.2));
+    }
+  }
+}
+@media (orientation: portrait) {
+  .sold-grid {
+    gap: 14px 12px;
+  }
+  .sold-grid > div {
+    gap: 10px;
+  }
+}
+@supports (height: 1cqh) {
+  .inventory-window .inventory-grid {
+    width: min(100cqw, calc(100cqh * 3.33333));
+    height: min(100cqh, calc(100cqw * 0.3));
+    min-height: 0;
+  }
+  @media (orientation: portrait) {
+    .inventory-window .inventory-grid {
+      width: min(100cqw, calc(100cqh * 1.2));
+      height: min(100cqh, calc(100cqw * 0.833333));
+    }
+  }
+}

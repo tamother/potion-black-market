@@ -1,0 +1,451 @@
+/* Explanations use the existing timber and parchment visual language. */
+.product-name .demand-preview {
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 7px;
+  color: #f0ce88;
+  white-space: normal;
+}
+.report-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0 23px;
+}
+.report-tabs button {
+  font-family: "Fusion Pixel", monospace;
+  background: #a48252;
+  border: 2px solid #694526;
+  box-shadow:
+    inset 2px 2px #eed19a,
+    inset -2px -2px #795431,
+    2px 3px #a27a46;
+  min-height: 44px;
+  color: #3f2a1d;
+  font-size: 16px;
+  text-shadow: none;
+  padding: 9px 11px;
+}
+.report-tabs button.selected {
+  background: #675174;
+  border-color: #39283f;
+  box-shadow:
+    inset 2px 2px #baa0c7,
+    inset -2px -2px #3a2942,
+    2px 3px #9e7542;
+  color: #fbe2ba;
+}
+.profit-explanation {
+  padding: 16px 14px;
+  background: #f0d6a1;
+  border: 2px solid #aa7e44;
+  box-shadow:
+    inset 2px 2px #ffebbd,
+    inset -2px -2px #ccaa72;
+  margin: 0 0 22px;
+  color: #5d3b22;
+}
+.profit-explanation h3 {
+  font-size: 16px;
+  color: #4c2f1c;
+  line-height: 1.7;
+  margin-bottom: 13px;
+}
+.profit-equation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 13px;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 13px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #c4a06a;
+}
+.profit-equation b {
+  color: #795028;
+  font-size: 18px;
+}
+.profit-explanation p {
+  font-size: 13px;
+  line-height: 1.95;
+  margin-top: 10px;
+  color: #78522c;
+}
+.profit-explanation .cash-explanation {
+  color: #927048;
+  font-size: 12px;
+  border-top: 1px solid #d5b27d;
+  padding-top: 12px;
+}
+.report-financial-details {
+  border-top: 2px solid #aa8049;
+  border-bottom: 2px solid #aa8049;
+  padding: 15px 0;
+  margin: 22px 0;
+  color: #77512d;
+  font-size: 13px;
+}
+.report-financial-details > summary,
+.ledger-sale-details > summary {
+  cursor: pointer;
+  line-height: 1.8;
+  min-height: 28px;
+}
+.report-financial-details[open] > summary {
+  margin-bottom: 20px;
+}
+.report-financial-details .report-numbers {
+  margin-bottom: 0;
+}
+.sales-explanation {
+  color: #654323;
+}
+.sales-intro {
+  font-size: 13px;
+  color: #88613a;
+  line-height: 1.95;
+  margin-bottom: 20px;
+}
+.sale-detail {
+  border: 2px solid #a67b42;
+  background: #e8cfa0;
+  box-shadow:
+    inset 2px 2px #f9e2b5,
+    inset -2px -2px #c49d63;
+  padding: 15px 13px;
+  margin-bottom: 18px;
+}
+.sale-detail-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 11px;
+}
+.sale-detail-heading .potion {
+  width: 28px;
+  height: 36px;
+  flex-shrink: 0;
+}
+.sale-detail-heading h3 {
+  font-size: 16px;
+  color: #4d2e1b;
+  line-height: 1.5;
+}
+.sale-detail-heading > strong {
+  font-size: 14px;
+  color: #765029;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.sale-reason {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #614025;
+}
+.sale-price-reason {
+  font-size: 12px;
+  color: #917047;
+  line-height: 1.9;
+  margin-top: 10px;
+}
+.sale-finance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 12px;
+  margin-top: 13px;
+  color: #75502c;
+  line-height: 1.8;
+}
+.sale-expiry {
+  color: #9b5336;
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 10px;
+}
+.sale-calculation {
+  border-top: 1px solid #bf9b64;
+  margin-top: 13px;
+  padding-top: 11px;
+  font-size: 12px;
+  color: #9b7648;
+}
+.sale-calculation summary {
+  min-height: 25px;
+  cursor: pointer;
+  line-height: 1.8;
+}
+.sale-calculation p {
+  line-height: 1.95;
+  margin-top: 8px;
+}
+.sale-calculation small {
+  display: block;
+  font-size: 10px;
+  color: #a48150;
+  margin-top: 8px;
+  line-height: 1.9;
+}
+.legacy-explanation {
+  font-size: 13px;
+  line-height: 1.95;
+  padding: 14px;
+  background: #eed4a1;
+  border: 2px solid #b59058;
+  margin-bottom: 20px;
+}
+.legacy-explanation > div {
+  margin-top: 15px;
+}
+.ledger-sale-details {
+  margin: 16px 0 20px;
+  padding: 12px 0;
+  border-block: 1px solid #b49159;
+}
+.ledger-sale-details > summary {
+  display: list-item !important;
+  font-size: 13px !important;
+  list-style: disclosure-closed !important;
+  padding: 0 !important;
+  color: #77532e !important;
+}
+.ledger-sale-details[open] > summary {
+  list-style: disclosure-open !important;
+  margin-bottom: 15px;
+}
+.ledger-sale-details .sale-calculation > summary {
+  display: list-item !important;
+  grid-template-columns: none !important;
+  list-style: disclosure-closed !important;
+  font-size: 12px !important;
+  padding: 0 !important;
+}
+.ledger-sale-details .sale-calculation[open] > summary {
+  list-style: disclosure-open !important;
+}
+.ledger-details .profit-explanation {
+  margin: 14px 0 18px;
+}
+.order-economics {
+  padding: 13px 10px;
+  background: #f0d9aa;
+  border: 2px solid #b18a51;
+  margin: 14px 0;
+  box-shadow: inset 1px 1px #ffedc5;
+}
+.order-economics > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.order-economics span {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #8d693c;
+}
+.order-economics strong {
+  font-size: 16px;
+  color: #4f6b43;
+  white-space: nowrap;
+}
+.order-economics .order-loss {
+  color: #a34f32;
+}
+.order .order-economics p {
+  font-size: 11px;
+  color: #8c663b;
+  line-height: 1.9;
+  margin-top: 10px;
+}
+.order .order-economics p.order-opportunity {
+  color: #965037;
+}
+.order-consequences {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 17px 0;
+}
+.order-consequences > div {
+  border-left: 3px solid #8c7849;
+  padding-left: 9px;
+}
+.order-consequences > div:last-child {
+  border-color: #8b6d9b;
+}
+.order-consequences h4 {
+  font-family: "Fusion Pixel", monospace;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 0;
+  color: #573a24;
+}
+.order .order-consequences p {
+  font-size: 11px;
+  line-height: 1.9;
+  margin-top: 6px;
+  color: #785331;
+}
+.order-buttons > button {
+  flex: 1 !important;
+  min-width: 0;
+  white-space: nowrap;
+  padding-inline: 7px !important;
+  font-size: 12px !important;
+}
+.order-status small {
+  font-size: 10px;
+}
+.right-rail .orders {
+  max-height: none;
+}
+@media (max-width: 740px) {
+  .product-name .demand-preview {
+    font-size: 11px;
+    line-height: 1.7;
+    max-width: 135px;
+    margin-top: 6px;
+  }
+  .report-tabs {
+    gap: 10px;
+    margin: 19px 0 22px;
+  }
+  .report-tabs button {
+    font-size: 16px;
+    min-height: 46px;
+  }
+  .profit-explanation {
+    padding: 14px 12px;
+  }
+  .profit-explanation h3 {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .profit-equation {
+    font-size: 12px;
+    gap: 7px 12px;
+  }
+  .profit-equation b {
+    font-size: 16px;
+  }
+  .profit-explanation p {
+    font-size: 12px;
+    line-height: 2;
+  }
+  .profit-explanation .cash-explanation {
+    font-size: 11px;
+    line-height: 1.95;
+  }
+  .sales-intro {
+    font-size: 12px;
+    line-height: 1.95;
+  }
+  .sale-detail {
+    padding: 14px 11px;
+  }
+  .sale-detail-heading {
+    gap: 7px;
+  }
+  .sale-detail-heading h3 {
+    font-size: 14px;
+  }
+  .sale-detail-heading strong {
+    font-size: 12px;
+  }
+  .sale-detail-heading .potion {
+    width: 25px;
+    height: 34px;
+  }
+  .sale-reason {
+    font-size: 12px;
+    line-height: 1.95;
+  }
+  .sale-price-reason {
+    font-size: 11px;
+    line-height: 1.95;
+  }
+  .sale-finance {
+    font-size: 11px;
+    gap: 7px 11px;
+  }
+  .sale-calculation {
+    font-size: 11px;
+  }
+  .sale-calculation small {
+    font-size: 10px;
+  }
+  .order-economics {
+    padding: 13px 12px;
+  }
+  .order-economics span {
+    font-size: 12px;
+  }
+  .order-economics strong {
+    font-size: 18px;
+  }
+  .order .order-economics p {
+    font-size: 12px;
+    line-height: 1.95;
+  }
+  .order-consequences {
+    gap: 15px;
+  }
+  .order-consequences h4 {
+    font-size: 14px;
+  }
+  .order .order-consequences p {
+    font-size: 12px;
+    line-height: 1.95;
+  }
+  .order-buttons {
+    gap: 12px;
+  }
+  .order-buttons > button {
+    font-size: 14px !important;
+    min-height: 46px;
+  }
+  .order-status small {
+    font-size: 11px;
+  }
+  .ledger-details .profit-explanation h3 {
+    font-size: 14px;
+  }
+  .ledger-sale-details .sale-detail-heading {
+    flex-wrap: wrap;
+  }
+  .ledger-sale-details .sale-detail-heading strong {
+    margin-left: 0;
+  }
+  .legacy-explanation {
+    font-size: 12px;
+  }
+}
+@media (max-width: 360px) {
+  .product-name .demand-preview {
+    font-size: 10px;
+  }
+  .sale-detail-heading {
+    gap: 5px;
+  }
+  .sale-detail-heading h3 {
+    font-size: 13px;
+  }
+  .sale-detail-heading strong {
+    font-size: 11px;
+  }
+  .sale-detail {
+    padding: 12px 9px;
+  }
+  .sale-detail-heading .potion {
+    width: 23px;
+    height: 31px;
+  }
+  .order-buttons > button {
+    font-size: 13px !important;
+  }
+  .profit-explanation {
+    padding: 12px 10px;
+  }
+}
