@@ -79,7 +79,7 @@ export function TownScene({
           >
             <img
               className="town-art"
-              src="/world/town.webp"
+              src={`${import.meta.env.BASE_URL}world/town.webp`}
               alt="月隐镇石板广场，镇集市、公会与旧巷环绕月亮喷泉，南边通往魔药店"
               draggable={false}
             />

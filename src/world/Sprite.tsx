@@ -1,4 +1,15 @@
 import type { Facing } from "./model";
+
+const playerSheetHeight = 1239;
+const playerFrameHeight = playerSheetHeight / 4;
+// Crop the uneven rows in shopkeeper.png without cutting into the next pose.
+const playerFrameTop: Record<Facing, number> = {
+  down: 0,
+  left: playerFrameHeight,
+  right: 592,
+  up: 898,
+};
+
 export function Sprite({
   kind = "player",
   facing = "down",
@@ -12,11 +23,11 @@ export function Sprite({
   person?: number;
   walking?: boolean;
 }) {
-  const row =
+  const verticalPosition =
     kind === "player"
-      ? ["down", "left", "right", "up"].indexOf(facing)
+      ? (playerFrameTop[facing] * 100) / (playerSheetHeight - playerFrameHeight)
       : facing === "up"
-        ? 1
+        ? 100
         : 0;
   const col = kind === "player" ? frame : person;
   return (
@@ -24,9 +35,9 @@ export function Sprite({
       aria-hidden="true"
       className={`actor-sprite ${kind} ${walking ? "walking" : ""}`}
       style={{
-        backgroundImage: `url(/world/${kind === "player" ? "shopkeeper" : "visitors"}.png)`,
+        backgroundImage: `url(${import.meta.env.BASE_URL}world/${kind === "player" ? "shopkeeper" : "visitors"}.png)`,
         backgroundSize: `400% ${kind === "player" ? 400 : 200}%`,
-        backgroundPosition: `${(col * 100) / 3}% ${(row * 100) / (kind === "player" ? 3 : 1)}%`,
+        backgroundPosition: `${(col * 100) / 3}% ${verticalPosition}%`,
       }}
     />
   );

@@ -181,14 +181,14 @@ export function ShopScene({
           >
             <img
               className="room-art"
-              src="/world/shop-honors.webp"
+              src={`${import.meta.env.BASE_URL}world/shop-honors.webp`}
               alt="月光照进木制魔药店，布告栏、仓库箱、药架、进货簿和账桌环绕着中央地毯"
               draggable={false}
             />
             {s.crystalUnlockedDay !== null && (
               <img
                 className="crystal-environment"
-                src="/world/crystal-environment.webp"
+                src={`${import.meta.env.BASE_URL}world/crystal-environment.webp`}
                 alt=""
                 aria-hidden="true"
                 draggable={false}
