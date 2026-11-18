@@ -490,3 +490,123 @@
   line-height: 1.55;
   bottom: max(18px, env(safe-area-inset-bottom, 0px));
 }
+
+/* Contacts share one dialogue surface, with room for longer offers on small screens. */
+.game-root .town-conversation .window-content {
+  display: block;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 12px clamp(12px, 3vw, 26px);
+  scrollbar-color: #9b7546 #e4c791;
+}
+
+.town-conversation .town-greeting {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 12px;
+  padding: 8px 10px;
+  border-left: 3px solid #795d82;
+  background: #f4dfae80;
+  color: #50321e;
+}
+
+.town-greeting span {
+  color: #604264;
+}
+
+.town-topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  align-items: start;
+  gap: 10px;
+  margin-block: 10px;
+}
+
+.town-topic {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid #b18b54;
+  background: #f4dfae55;
+}
+
+.town-active {
+  grid-column: 1 / -1;
+}
+
+.town-conversation .town-topic h3 {
+  font-size: 16px;
+  color: #50321e;
+}
+
+.town-contract {
+  display: grid;
+  gap: 5px;
+}
+
+.town-contract h4,
+.town-conversation ul {
+  margin: 0;
+}
+
+.town-conversation ul {
+  padding-inline-start: 18px;
+}
+
+.town-buttons,
+.town-field,
+.town-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.town-item .potion {
+  width: 20px;
+  height: 28px;
+}
+
+.game-root .town-conversation select,
+.game-root .town-conversation input {
+  max-width: 100%;
+  background: #f3dfaf;
+  color: #50321e;
+  border: 1px solid #9b7546;
+  min-height: 32px;
+  padding: 3px 5px;
+  font: inherit;
+}
+
+.game-root .town-conversation input {
+  width: 54px;
+}
+
+.game-root .town-conversation .town-topic button {
+  margin: 0;
+  min-height: 36px;
+  padding: 4px 8px;
+  font-size: 12px;
+  white-space: normal;
+}
+
+.town-conversation .window-footer {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding-block: 5px;
+}
+
+.town-conversation .window-actions:empty {
+  display: none;
+}
+
+.town-history {
+  margin-top: 8px;
+}
+
+.town-history summary {
+  cursor: pointer;
+  width: fit-content;
+}

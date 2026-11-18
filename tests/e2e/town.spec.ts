@@ -68,7 +68,6 @@ test("honors are a separate scene plaque; town travel and relations persist with
   await close(page);
   await goTown(page);
   await station(page, "town-guild", "冒险者公会");
-  await page.getByRole("tab", { name: "关系", exact: true }).click();
   await expect(page.getByTestId("relation-rank")).toHaveText("合作");
   await close(page);
   const n = await saved(page);
@@ -138,13 +137,11 @@ test("a real cross-day promise reserves retail stock then pays once and unlocks 
   ).toBe(0);
   await goTown(page);
   await station(page, "town-guild", "冒险者公会");
-  await page.getByRole("tab", { name: "在办", exact: true }).click();
   const cash = (await saved(page)).cash;
   await page.getByRole("button", { name: "交付跨日委托", exact: true }).click();
   let n = await saved(page);
   expect(n.cash).toBe(cash + offer.reward);
   expect(n.town.keys.guild).toBe(1);
-  await page.getByRole("tab", { name: "关系", exact: true }).click();
   await expect(page.getByTestId("relation-rank")).toHaveText("合作");
   await page.reload();
   expect((await saved(page)).town.keys.guild).toBe(1);
@@ -161,14 +158,13 @@ test("guild preorders reserve capacity and arrive once after overnight settlemen
   await load(page, s);
   await goTown(page);
   await station(page, "town-market", "镇集市");
-  await page.getByRole("tab", { name: "预订", exact: true }).click();
+  await page.getByLabel("供货渠道").selectOption("reserve");
   await page
     .getByRole("spinbutton", { name: "镇区采购数量", exact: true })
     .fill("2");
   await page
     .getByRole("button", { name: "镇区采购治疗药水", exact: true })
     .click();
-  await page.getByRole("tab", { name: "到货", exact: true }).click();
   await expect(page.getByText("第8天到货", { exact: true })).toBeVisible();
   await close(page);
   await back(page);
@@ -197,8 +193,9 @@ async function fits(page: Page) {
         ".window-header,.window-tabs,.window-content,.window-footer",
       )) {
         const b = region.getBoundingClientRect();
+        const scrollable = region.matches(".town-conversation .window-content");
         if (
-          region.scrollHeight > region.clientHeight + 1 ||
+          (!scrollable && region.scrollHeight > region.clientHeight + 1) ||
           region.scrollWidth > region.clientWidth + 1
         )
           bad.push(`overflow ${region.className}`);
@@ -214,8 +211,7 @@ async function fits(page: Page) {
               x.height &&
               (x.left < b.left - 2 ||
                 x.right > b.right + 2 ||
-                x.top < b.top - 2 ||
-                x.bottom > b.bottom + 2)
+                (!scrollable && (x.top < b.top - 2 || x.bottom > b.bottom + 2)))
             )
               bad.push(`text ${n.textContent.slice(0, 28)}`);
         }
@@ -226,8 +222,7 @@ async function fits(page: Page) {
             x.height &&
             (x.left < b.left - 1 ||
               x.right > b.right + 1 ||
-              x.top < b.top - 1 ||
-              x.bottom > b.bottom + 1)
+              (!scrollable && (x.top < b.top - 1 || x.bottom > b.bottom + 1)))
           )
             bad.push(
               `control ${el.getAttribute("aria-label") || el.textContent}`,
@@ -286,11 +281,15 @@ for (const size of [
       ["town-alley", "旧巷"],
     ]) {
       await station(page, id, label);
-      const labels = await page.getByRole("tab").allTextContents();
-      for (const name of labels) {
-        await page.getByRole("tab", { name: name.trim(), exact: true }).click();
-        await allPages(page);
-      }
+      const dialog = page.getByRole("dialog", { name: label, exact: true });
+      await expect(dialog.getByRole("tab")).toHaveCount(0);
+      await expect(dialog.getByRole("button", { name: "下一页" })).toHaveCount(
+        0,
+      );
+      await expect(
+        dialog.getByRole("heading", { name: "新委托", exact: true }),
+      ).toBeVisible();
+      await fits(page);
       await close(page);
     }
     await back(page);

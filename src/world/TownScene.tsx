@@ -6,6 +6,11 @@ import { useMovement } from "./useMovement";
 import { Joystick } from "./Joystick";
 import { Sprite } from "./Sprite";
 import { ControlHint, useControlGuide } from "./ControlHint";
+const TOWN_SIGNPOSTS: Partial<Record<StationId, string>> = {
+  "town-market": "镇集市 · 补货",
+  "town-guild": "冒险者公会 · 委托",
+  "town-alley": "旧巷 · 消息",
+};
 const PEOPLE = [
   { x: 230, y: 250, person: 0 },
   { x: 530, y: 198, person: 1 },
@@ -106,7 +111,7 @@ export function TownScene({
                   movement.go(st.approach, st.id);
                 }}
               >
-                <span className="station-label">{st.label}</span>
+                <span className="station-label">{TOWN_SIGNPOSTS[st.id] ?? st.label}</span>
                 <span className="station-ring" />
               </button>
             ))}
